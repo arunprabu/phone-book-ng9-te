@@ -1,1 +1,83 @@
-<p>home works!</p>
+<div class="container">
+    <h1>Data Binding</h1>
+    <h2>String Interpolation</h2>
+    <p>App Name is: {{appName}}</p>
+    <p>Experience: {{exp}}</p>
+    <p>Is Logged in? {{isLoggedIn}}</p>
+    <!-- the following is also string interpolation -->
+    <input type="text" value="{{appName}}">
+
+    <br>
+
+    <h2>Property Binding</h2>
+    <p [title]="city">Mouseover to see the city</p>
+    <input type="text" [value]="city">
+    <!-- todo:  learn about class binding [ngClass]-->
+    <div class="redWrapper">
+        test  -- works -- normal css
+    </div>
+
+    <div [ngClass]="{  'greenWrapper': isAuth(), 'redWrapper': !isAuth() }">
+        Testing ng class
+    </div>
+
+    <!-- todo:  learn about style binding [ngStyle]-->
+
+    <h3>Event Binding</h3>
+    <button type="button" 
+    onclick="clickMeBtnHandler()">Click me! -- will not work - check console</button>
+
+    <br><br>
+    <button type="button" 
+        (click)="clickMeBtnHandler()">Click me</button>
+    
+    <h3>Two way Binding</h3>
+    <p>{{course}}</p><!-- string interpolation -->
+    <input type="text" value="{{course}}"> <!-- string interpolation -->
+    <br>
+    <input type="text" [value]="course"> <!-- prop binding -->
+    <br>
+    <input type="text" [(ngModel)]='course'>
+
+
+    <hr>
+    <h2>Directives</h2>
+    <pre>
+        Directives
+        ----
+            Building blocks 
+            special instructions to the dom 
+
+            1. Attribute Directives 
+                
+            2. Structural Directives 
+                
+            3. Custom Attribute Directives 
+
+            4. Custom Structural Directives 
+    </pre>
+
+    <h3>1. Attribute Directives</h3>
+            routerLink, routerLinkActive, ngClass, ngStyle, 
+    <h3>2. Structural Directives</h3>
+            *ngIf, *ngFor, 
+            todo: ngSwitch
+
+    <p> *ngIf</p>
+
+    <div class="alert alert-success" *ngIf="isLoggedIn">
+        Wow! you are authenticated!
+    </div>
+
+    <div class="alert alert-danger" *ngIf="!isLoggedIn">
+        Pls login to access premium features...
+    </div>
+
+    <p>*ngFor</p>
+    <ul>
+        <li *ngFor='let skill of skillsList'>{{skill}}</li>
+    </ul>
+
+    <hr>
+
+</div>
